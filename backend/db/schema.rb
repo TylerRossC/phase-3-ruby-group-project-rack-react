@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "guardians", force: :cascade do |t|
     t.integer "user_id"
-    t.string "class"
+    t.string "class_name"
     t.integer "power"
   end
 
