@@ -6,7 +6,16 @@ class Application
 
     if req.path.match(/test/) 
       return [200, { 'Content-Type' => 'application/json' }, [ {:message => "test response!"}.to_json ]]
-
+    
+    elsif req.path.match(/users/)
+      return [200, { 'Content-Type' => 'application/json' }, [ {data: User.all}.to_json ]]
+    
+    elsif req.path.match(/guardians/)
+      return [200, { 'Content-Type' => 'application/json' }, [ {data: Guardian.all}.to_json ]]
+    
+    elsif req.path.match(/items/)
+      return [200, { 'Content-Type' => 'application/json' }, [ {data: Item.all}.to_json ]]
+    
     else
       resp.write "Path Not Found"
 
